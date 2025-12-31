@@ -1,0 +1,42 @@
+﻿@model List<quiz.Models.Entities.Quiz>
+
+@{
+    ViewData["Title"] = "Take Quiz";
+}
+
+<h2>@ViewBag.QuizTitle</h2>
+
+<form asp-action="SubmitQuiz" method="post">
+
+    <!-- Pass quiz title -->
+    <input type="hidden" name="quizTitle" value="@ViewBag.QuizTitle" />
+
+    <div>
+        <label><strong>Student Name</strong></label><br />
+        <input type="text" name="studentName" required />
+    </div>
+
+    <br />
+
+    @foreach (var q in Model)
+    {
+        <div style="margin-bottom:20px; padding:10px; border:1px solid #ccc;">
+            <p><strong>@q.QuestionText</strong></p>
+
+            <input type="radio" name="answers[@q.Id]" value="@q.Option1" required />
+            @q.Option1 <br />
+
+            <input type="radio" name="answers[@q.Id]" value="@q.Option2" />
+            @q.Option2 <br />
+
+            <input type="radio" name="answers[@q.Id]" value="@q.Option3" />
+            @q.Option3 <br />
+
+            <input type="radio" name="answers[@q.Id]" value="@q.Option4" />
+            @q.Option4 <br />
+        </div>
+    }
+
+    <button type="submit">Submit Quiz</button>
+
+</form>

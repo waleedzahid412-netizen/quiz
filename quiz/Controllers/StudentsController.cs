@@ -4,11 +4,11 @@ using quiz.Models.Entities;
 
 namespace quiz.Controllers
 {
-    public class Students : Controller
+    public class StudentsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public Students(ApplicationDbContext context)
+        public StudentsController(ApplicationDbContext context)
         {
             _context = context;
         }

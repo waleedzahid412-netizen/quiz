@@ -5,11 +5,11 @@ using quiz.Models;
 
 namespace quiz.Controllers
 {
-    public class Quiz : Controller
+    public class QuizController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public Quiz(ApplicationDbContext context)
+        public QuizController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -28,7 +28,7 @@ namespace quiz.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(quiz.Models.Entities.Quiz question)
+        public IActionResult Create(Quiz question)
         {
             if (ModelState.IsValid)
             {
