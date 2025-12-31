@@ -1,0 +1,25 @@
+﻿@model List<quiz.Models.Entities.Students>
+
+@{
+    ViewData["Title"] = "Results";
+    var maxScore = Model.Max(m => m.Score);
+}
+
+<h2>Quiz Results</h2>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Student Name</th>
+        <th>Quiz Title</th>
+        <th>Score</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr style="@(item.Score == maxScore ? "background-color: lightgreen;" : "")">
+            <td>@item.StudentName</td>
+            <td>@item.QuizTitle</td>
+            <td>@item.Score</td>
+        </tr>
+    }
+</table>
